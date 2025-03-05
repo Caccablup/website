@@ -1,0 +1,389 @@
+/* link font roboto from google font */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root{
+    --primaryTextColor: #232e35; /*untuk title atau judul */
+    --secondaryTextColor: #656d72; /*untuk text biasa seperti paragraph */
+
+    --borderColor: #f1f1f1;
+    --lineColor: #d9d9d9; /*untuk line di pre-title*/
+
+    --primaryBackgroundColor: #fff;
+    --secondBackgroundColor: #fbfbfb;
+    --thirdBagroundColor: #f5f3fe;
+
+    --primaryIconColor: #7e74f1;
+    --primaryIconColorHover: #5d51e8;
+
+    --sectionPadding: 6rem 0;
+
+    --itemBorderRadius :0.7rem;
+    /* ren alternatif lain untuk mengset ukuran selain menggunakan pixel 1 ren= 16 pixel */
+
+} 
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Roboto", sans;
+}
+
+h1,h2,h3,h4,h5,h6, strong {
+    color: var(--primaryTextColor);
+}
+
+p{
+    font-size: 1rem; /*16px*/
+    line-height: 1.9rem;
+}
+
+p, span, label, input, textarea, li {
+    color: var(--secondaryTextColor);
+}
+
+a {
+    text-decoration: none; /*untuk menghilangkan garis dibawah hyperlink*/
+}
+
+.main-container {
+    width: 1200px;
+    margin: 0 auto; /*untuk menyesuaikan tampilan pengguna*/
+}
+
+@media screen and (max-width: 1200px) {
+    .main-container {
+        width: 90%;
+    }
+}
+
+/* titles */
+.section-title {
+    margin: 1rem 0 4rem;
+    font-size: 2rem;
+}
+.pre-title {
+    text-transform: uppercase; /*supaya huruf besar semua*/
+    letter-spacing: 0.5rem; /*jarak antar karakter*/
+    color: var(--secondaryTextColor);
+    position: relative;
+    padding-left: 40px;
+    width: fit-content;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.pre-title::before {
+    content: "";
+    width: 30px;
+    height: 1px;
+    background: var(--lineColor);
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 50%;
+}
+
+/* layout */
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*responsifnya supaya dia bisa menyesuaikan dengan layar pengguna*/
+    gap: 3rem;
+}
+
+/*logo dan navigation menu */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0; /*2 rem kanan 0 kiri*/
+}
+
+.nav ul {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    font-weight: 700;
+    font-size: 2rem;
+}
+
+.logo a {
+    color: var(--primaryTextColor);
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
+}
+
+nav ul li a {
+    color: var(--primaryTextColor)
+}
+
+/*titik tiga*/
+.tiga div {
+    width: 25px;
+    height: 2px;
+    background-color: black;
+    margin: 7px;
+    transition: all 0.3s;
+    z-index: 99; /*supaya titik tiganya selalu muncul di atas*/
+}
+
+.tiga {
+    display: none;
+    z-index: 99;
+    position:fixed; /*agar titik tiganya selalu muncul dilayar*/
+    top: 33px;
+    right: 33px;
+}
+
+/*hero section*/
+#hero {
+    height: 720px;
+    display: grid;
+    grid-template-columns: 1fr 1fr; /*untuk membagi 2 kolom yang sama lebaranya klo di tambahin 1fr lagi maka akan membagi menjadi 3 kolom*/
+    align-items: center;
+}
+
+.hero-name {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 0.5rem 0 1rem; /*atas, kiri kanan, bawah*/
+}
+
+.hero-right img {
+    width: 90%;
+}
+
+.hero-right {
+    display: flex;
+    justify-content: center;
+}
+
+/* service */
+#skills {
+    background-color: var(--secondBackgroundColor);
+    padding: var(--sectionPadding);
+}
+
+.skills .pre-title {
+    margin: 0 auto;
+}
+
+.skills-title {
+    text-align: center;
+}
+
+.skill {
+    padding: 3rem 2rem;
+    text-align: center;
+    background: var(--primaryBackgroundColor);
+    border-radius: var(--itemBorderRadius);
+}
+
+.skill h4 {
+    margin: 1.5rem 0;
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.skill-icon {
+    background: var(--thirdBagroundColor);
+    width: fit-content;
+    margin: 0 auto;
+    padding: 1rem 1.3rem;
+    border: 0.5rem;
+}
+
+.skill-icon svg {
+    fill: var(--primaryIconColor);
+}
+
+/* sertifikat section */
+#sertifikasi {
+    padding: var(--sectionPadding);
+}
+
+.sertifikat {
+    border-radius: var(--itemBorderRadius);
+    overflow: hidden; /* membuat ujungnya tidak runcing*/
+}
+
+.sertifikat-cover {
+    height: 250px;
+}
+
+.sertifikat-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.sertifikat-info {
+    padding: 2rem 1.5rem;
+}
+
+.sertifikat-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
+.sertifikat h4 {
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.sertifikat-title a svg:hover {
+    fill: var(--primaryIconColor);
+}
+
+.sertifikat-title a svg {
+    transition: 0.2s ease-in-out;
+}
+
+/* education and work experiens */
+#education {
+    padding: var(--sectionPadding);
+    background: var(--secondBackgroundColor);
+}
+
+.education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit);
+    gap: 3rem;
+}
+
+.educatio {
+    display: flex;
+    gap: 1rem;
+}
+
+.educatio .line {
+    padding: 0 0.7rem;
+}
+
+.education .line div {
+    width: 2px;
+    height: 100%;
+    background: var(--borderColor);
+    position: relative;
+}
+
+.educatio-info p {
+    margin: 0.6rem 0 1.4rem;
+}
+
+.educatio-years {
+    margin-bottom: 3rem;
+}
+
+  /* The dot on the line */
+.educatio .line div:before {
+    content: "";
+    width: 15px;
+    height: 15px;
+    background: var(--borderColor);
+    border-radius: 50%;
+    position: absolute;
+    left: -6px;
+}
+
+/* Contact Section */
+#contact {
+    padding: var(--sectionPadding);
+  }
+  .contact {
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 3rem;
+  }
+  .contact-form div {
+    margin-bottom: 1.4rem;
+  }
+  .contact-form input,
+  .contact-form textarea {
+    width: 100%;
+    padding: 0.75rem 1.3rem;
+    font-family: "Roboto", sans-serif;
+    background: var(--secondaryBackgroundColor);
+    border: 1px solid var(--borderColor);
+    border-radius: 3px;
+    resize: none;
+  }
+  .contact-form input::placeholder,
+  .contact-form textarea::placeholder {
+    color: #9d9fa1;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus {
+    outline: none;
+    border: 1px solid #7d7d7d;
+  }
+  .btn-submit {
+    width: 100%;
+    padding: 0.75rem 1.3rem;
+    background-color: var(--primaryIconColor);
+    color: #fff;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+  .btn-submit:hover {
+    background-color: var(--primaryIconColorHover);
+  }
+  /* Contact Section - Right Side */
+  .contact-item {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .contact-item-icon {
+    background: var(--thirdBackgroundColor);
+    /* padding: 0.8rem 1rem; */
+    width: 53px;
+    height: 53px;
+    border-radius: 9px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .contact-item-icon svg {
+    fill: var(--primaryIconColor);
+  }
+  .contact-item-detail h4 {
+    margin-bottom: 0.6rem;
+  }
+
+/* Footer Section */
+footer {
+    padding: 4rem 0;
+    background: var(--secondaryBackgroundColor);
+    text-align: center;
+}
+
+  .footer-icons {
+    margin-bottom: 1rem;
+}
+
+.footer-icons a {
+    margin: 0 0.5rem;
+}
+
+.footer-icons svg {
+    fill: #3e3f40;
+}
+
+.footer-icons a:hover svg {
+    fill: #000;
+}
